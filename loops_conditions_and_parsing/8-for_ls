@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
-# Display the content of the current directory in a list format, showing only the part of the name after the first dash
-
-for file in *
+#displays the content for cd
+content=0
+list=$(ls)
+for content in $list
 do
-    if [ -f "$file" ] && [ ! -d "$file" ] && [[ $file == *-* ]]
-    then
-        echo "${file#*-}"
-    fi
+echo "$content" | cut -d "-" -f2
 done
