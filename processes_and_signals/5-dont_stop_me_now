@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
 # This script attempts to terminate the process running the '4-to_infinity_and_beyond' bash script.
 
-pkill -f 4-to_infinity_and_beyond
+# Get the process ID (PID) of the process
+PID=$(ps aux | grep '[4]-to_infinity_and_beyond' | awk '{print $2}')
+
+# If the PID was found, kill the process
+if [ ! -z "$PID" ]; then
+  kill $PID
+fi
